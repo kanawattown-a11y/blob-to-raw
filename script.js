@@ -13,4 +13,10 @@ document.getElementById('convertBtn').addEventListener('click', () => {
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `<a href="${rawUrl}" target="_blank">${rawUrl}</a>`;
+
+    copyBtn.addEventListener('click', () => {
+    const rawLink = resultDiv.querySelector('a').href;
+    navigator.clipboard.writeText(rawLink)
+        .then(() => alert('تم نسخ الرابط!'))
+        .catch(err => alert('فشل النسخ: ' + err));
 });
